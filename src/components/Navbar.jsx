@@ -23,7 +23,7 @@ const Navbar = (props) => {
       </div>
       <ul className={`md:flex md:items-center md:pb-0 pb-12 md:mr-24 absolute md:static bg-white md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-700  ${open ? 'top-14':'top-[-500px]'}`}>
         {Links.map(links=>(
-          <li className="m-4 md:mr-5  hover:text-indigo-600 cursor-pointer" key={links.name}>
+          <li className="m-4 md:mr-5  hover:text-indigo-600 cursor-pointer" key={links.name} onClick={()=>setOpen(!open)}>
             <a className='hover:md:border-b-2 md:pb-1 hover:md:border-indigo-500 transition-all' onClick={()=>{props.scrollToTarget(links.link)}}>{links.name}</a>
           </li>
         ))}

@@ -42,7 +42,7 @@ const Footer = () => {
                     <TooltipProvider>
                     <Tooltip>
                     <TooltipTrigger>
-                    <span><a className='cursor-pointer mr-9 2xl:mr-12' target='_blank' href={data.link}>{data.icon}</a></span>
+                    <span><a className='cursor-pointer mr-9 max-2xl:mr-12' target='_blank' href={data.link}>{data.icon}</a></span>
                     </TooltipTrigger>
                     <TooltipContent>
                         {data.iconname}

@@ -82,7 +82,7 @@ const Projects = (props) => {
         <div className="flex text-4xl text-indigo-600 font-semibold justify-center">
           Projects
         </div>
-        <div className="flex flex-row p-8 m-auto 2xl:pl-40 pt-20 gap-8 overflow-auto pb-10">
+        <div className="flex flex-row p-8 m-auto min-[2300px]:pl-40 pt-20 gap-8 overflow-auto pb-10">
           {project.map((data)=>(
           <div className="group relative">
             <Badge className="relative left-3 top-8 bg-indigo-500 text-white border-indigo-500 text-sm" variant="outline">{data.tech}</Badge>            

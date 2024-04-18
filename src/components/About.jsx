@@ -194,13 +194,13 @@ const About = (props) => {
               </TabsList>
               <div className="w-full p-4">
                 <TabsContent value="Personalinfo">
-                  <h2 className="text-2xl font-semibold 2xl:text-4xl">Student</h2>
-                  <p className="text-base mt-2 2xl:text-xl">
+                  <h2 className="text-2xl font-semibold min-[2300px]::text-4xl">Student</h2>
+                  <p className="text-base mt-2 min-[2300px]::text-xl">
                     I specialize in crafting intuitive websites with
                     cutting-edge technology. Moreover, I am always ready to
                     adopt new programming languages and solve bugs.
                   </p>
-                  <div className="flex text-sm md:text-base w-full flex-wrap 2xl:text-xl">
+                  <div className="flex text-sm md:text-base w-full flex-wrap min-[2300px]::text-xl">
                     {personalinfodata.map((data) => (
                       <p className="flex mt-8 font-medium w-1/2" key={data.text}>
                         <span>{data.icon}</span>

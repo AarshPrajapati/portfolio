@@ -19,11 +19,11 @@ const Home = (props) => {
               }}
             /></h3>
             </div>
-            <div className='flex self-start my-6 2xl:ml-32'>
+            <div className='flex self-start my-6 min-[2300px]:ml-32'>
             <Button className='bg-indigo-600 hover:bg-indigo-500 h-10 md:text-base'>Contact me &nbsp; <Send className='mt-1'  size='15px'/></Button>
             <Button className=' h-10 text-base ml-6'>Download CV &nbsp; <FileDown size='17px'/></Button>
             </div> 
-            <div className='flex self-start mt-4 2xl:ml-32'>
+            <div className='flex self-start mt-4 min-[2300px]:ml-32'>
              <a className='cursor-pointer mr-4' target='_blank' href='https://www.instagram.com/aarsh._.802/'><Instagram className='text-indigo-600 hover:text-indigo-900' /></a>
              <a className='cursor-pointer mr-4' target='_blank' href='https://github.com/AarshPrajapati'> <Github className='text-indigo-600 hover:text-indigo-900'/></a>
              <a className='cursor-pointer mr-4' target='_blank' href='https://www.linkedin.com/in/aarsh-prajapati-167825270/'><Linkedin className='text-indigo-600 hover:text-indigo-900'/></a>
