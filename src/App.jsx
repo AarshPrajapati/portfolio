@@ -5,6 +5,7 @@ import Home from "./components/Home"
 import Navbar from "./components/Navbar"
 import Projects from "./components/Projects"
 import { Toaster } from "@/components/ui/sonner"
+import { Analytics } from "@vercel/analytics/react"
 
 function App() {
   const home = useRef(null);
@@ -33,6 +34,7 @@ function App() {
       <Projects project={project}/>
       <Footer/>
       <Toaster />
+      <Analytics/>
     </div>
   )
 }
