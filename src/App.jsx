@@ -4,6 +4,7 @@ import Footer from "./components/Footer"
 import Home from "./components/Home"
 import Navbar from "./components/Navbar"
 import Projects from "./components/Projects"
+import { Toaster } from "@/components/ui/sonner"
 
 function App() {
   const home = useRef(null);
@@ -31,6 +32,7 @@ function App() {
       <About about={about}/>
       <Projects project={project}/>
       <Footer/>
+      <Toaster />
     </div>
   )
 }
