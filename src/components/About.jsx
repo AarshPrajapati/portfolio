@@ -17,6 +17,13 @@ import {
 } from "@/components/ui/hover-card";
 
 const About = (props) => {
+
+  const Call=()=>{
+    const telUrl = `tel:+1(647)5538223`;
+
+    // Open the phone app to make the call
+    window.location.href = telUrl;
+  }
   let personalinfodata = [
     {
       icon: <UserRound className="mr-4 text-indigo-500"/>,
@@ -24,7 +31,8 @@ const About = (props) => {
     },
     {
       icon: <Phone className="mr-4 text-indigo-500" />,
-      text: "+91 9265627203",
+      text: "+1 (647)553 8223",
+      onclick: Call
     },
     {
       icon: <Mail className="mr-4 text-indigo-500" />,
@@ -40,7 +48,7 @@ const About = (props) => {
     },
     {
       icon: <Home className="mr-4 text-indigo-500" />,
-      text: "Ahmedabad , Gujrat , India",
+      text: "34 Cresswell Dr Brampton, ON L6Y 2T6",
     },
   ];
 
@@ -202,7 +210,7 @@ const About = (props) => {
                   </p>
                   <div className="flex text-sm md:text-base w-full flex-wrap min-[2300px]::text-xl">
                     {personalinfodata.map((data) => (
-                      <p className="flex mt-8 font-medium w-1/2" key={data.text}>
+                      <p className="flex mt-8 font-medium w-1/2" key={data.text} onClick={data.onclick!=""?data.onclick:""}>
                         <span>{data.icon}</span>
                         <span className="break-all md:break-normal text-pretty">{data.text}</span>
                       </p>
