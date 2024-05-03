@@ -31,7 +31,7 @@ const Home = (props) => {
     setData({...data, [e.target.name]: e.target.value });
   };
   const downloadPDF = () => {
-    const pdfPath = '/Aarsh\ Resume.pdf';
+    const pdfPath = '/AarshPrajapati\ Resume.pdf';
     const link = document.createElement('a');
     link.href = pdfPath;
     link.download = 'Aarsh Prajapati Resume.pdf';
