@@ -65,16 +65,10 @@ const About = (props) => {
 
   let eduction = [
     {
-      school: "D.P High School",
-      class: "S.S.C",
-      grade: "72.5%",
-      year: "2017-2018",
-    },
-    {
-      school: "Navsarjan Higher Secoundry School",
-      class: "H.S.C Group-A",
-      grade: "61.07%%",
-      year: "2018-2020",
+      school: "Canadore College",
+      class: "Mobile Application Development",
+      grade: "",
+      year: "2024-Present",
     },
     {
       school: "Khyati School of Computer Application",
@@ -82,6 +76,12 @@ const About = (props) => {
       grade: "8.65 CGPA",
       year: "2020-2023",
     },
+    {
+      school: "Navsarjan Higher Secoundry School",
+      class: "H.S.C Group-A",
+      grade: "61.07%%",
+      year: "2018-2020",
+    },   
   ];
 
   let skills = [
