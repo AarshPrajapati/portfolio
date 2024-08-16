@@ -48,7 +48,7 @@ const About = (props) => {
     },
     {
       icon: <Home className="mr-4 text-indigo-500" />,
-      text: "34 Cresswell Dr Brampton, ON L6Y 2T6",
+      text: "Mississuga, Ontario, Canada",
     },
   ];
 
