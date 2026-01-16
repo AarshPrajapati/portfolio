@@ -20,6 +20,15 @@ const Projects = (props) => {
 
   let project=[
     {
+      tech:"React n8n Firebase",
+      livelink:"https://resume-maker-fullstack.vercel.app/",
+      gitlink:"https://github.com/AarshPrajapati",
+      imgalt:"Resume Maker",
+      imgsrc:"../Image/Resume_Maker.png",
+      cardtitle:"Resume Maker",
+      cardcontent:"Resume Maker made with React, n8n, Firebase, MongoDb, Node and Express"
+    },
+    {
       tech:"MERN",
       livelink:"https://keep-notes-phi.vercel.app/",
       gitlink:"https://github.com/AarshPrajapati/Keep-Notes",

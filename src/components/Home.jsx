@@ -31,7 +31,7 @@ const Home = (props) => {
     setData({...data, [e.target.name]: e.target.value });
   };
   const downloadPDF = () => {
-    const pdfPath = '/AarshPrajapati\ Resume.pdf';
+    const pdfPath = 'Image/AarshPrajapati Resume.pdf';
     const link = document.createElement('a');
     link.href = pdfPath;
     link.download = 'Aarsh Prajapati Resume.pdf';
@@ -52,12 +52,12 @@ const Home = (props) => {
     <div ref={props.home} className='w-screen m-auto p-8 pr-0  top-0 left-0 mt-16 lg:flex md:h-[130vh] lg:h-screen  justify-between gap-x-8'>
         <div className='lg:flex w-1/2 lg:h-5/6 lg:flex-col lg:w-1/2 sm:w-max p-4 md:p-10 justify-center  items-center'>
             <div className='w-screen md:w-auto md:line-clamp-4 list-inside whitespace-normal'>
-            <div className='md:text-sm uppercase font-bold mb-4 text-blue-800 tracking-[4px]'>Software Developer</div>
-            <h2 className='text-4xl w-[80%] overflow-hidden md:text-6xl text-ellipsis  md:w-[90%] leading-snug  antialiased font-semibold mb-6'>Hello , my name is Aarsh Prajapati</h2>
+            <div className='md:text-sm uppercase font-bold mb-4 text-blue-800 tracking-[4px]'>Data Scientist</div>
+            <h2 className='text-4xl w-[80%] overflow-hidden md:text-6xl text-ellipsis  md:w-[90%] leading-snug  antialiased font-semibold mb-6'>Hello, my name is Aarsh Prajapati</h2>
             <h3 className='tracking-normal flex text-xl'>I am &nbsp; 
               <Typewriter
             options={{
-                strings: ['Web Designer', 'Web Developer' , 'a Software Engineer'],
+                strings: ['Data Scientist', 'Data Analyst' , 'Machine Learning Enthusiast', 'AI Engineer'],
                 autoStart: true,
                 loop: true,
               }}

@@ -29,11 +29,11 @@ const About = (props) => {
       icon: <UserRound className="mr-4 text-indigo-500"/>,
       text: "Aarsh Prajapati",
     },
-    {
-      icon: <Phone className="mr-4 text-indigo-500" />,
-      text: "+1 (647)553 8223",
-      onclick: Call
-    },
+    // {
+    //   icon: <Phone className="mr-4 text-indigo-500" />,
+    //   text: "+1 (647)553 8223",
+    //   onclick: Call
+    // },
     {
       icon: <Mail className="mr-4 text-indigo-500" />,
       text: "ajprajapati2003@gmail.com",
@@ -44,7 +44,7 @@ const About = (props) => {
     },
     {
       icon: <GraduationCap className="mr-4 text-indigo-500" />,
-      text: "Bachelors in Computer Application",
+      text: "Post Graduate in Artificial Intelligence with Machine Learning",
     },
     {
       icon: <Home className="mr-4 text-indigo-500" />,
@@ -53,6 +53,14 @@ const About = (props) => {
   ];
 
   let experience = [
+    {
+      company: "Gokaddal Technologies",
+      role: "Machine Learning Intern",
+      duration: "April 2025 - September 2025",
+      content: "Working on various Machine Learning projects and gaining hands-on experience in the field of AI and ML.",
+      link: "https://www.gokaddal.com/",
+      linkname:"Gokaddal Technologies"
+    },
     {
       company: "NicheTech",
       role: "Internship",
@@ -67,13 +75,13 @@ const About = (props) => {
     {
       school: "Humber Polytechnic",
       class: "Artificial Intelligence with Machine Learning",
-      grade: " ",
+      grade: "84.80 GPA",
       year: "2025-2025",
     },  
     {
       school: "Canadore College",
       class: "Mobile Application Development",
-      grade: "",
+      grade: "3.75/4.0 GPA",
       year: "2024-2025",
     },
     {
@@ -87,32 +95,101 @@ const About = (props) => {
 
   let skills = [
     {
+      skillname: "Data Analysis & Visualization",
       svg: (
-        <svg
-          width="60px"
-          height="60px"
-          viewBox="0 0 32 32"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path d="M6 28L4 3H28L26 28L16 31L6 28Z" fill="#E44D26" />
-          <path d="M26 5H16V29.5L24 27L26 5Z" fill="#F16529" />
-          <path
-            d="M9.5 17.5L8.5 8H24L23.5 11H11.5L12 14.5H23L22 24L16 26L10 24L9.5 19H12.5L13 21.5L16 22.5L19 21.5L19.5 17.5H9.5Z"
-            fill="white"
-          />
+        <svg width="60px" height="60px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="#FF6F61" strokeWidth="2"/>
+          <path d="M2 17L12 22L22 17" stroke="#FF6F61" strokeWidth="2"/>
+          <path d="M12 17V3.5" stroke="#FF6F61" strokeWidth="2"/>
         </svg>
       ),
-      skillname: "HTML",
     },
     {
-      svg:(<svg width="60px" height="60px" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M6 28L4 3H28L26 28L16 31L6 28Z" fill="#1172B8"/>
-      <path d="M26 5H16V29.5L24 27L26 5Z" fill="#33AADD"/>
-      <path d="M19.5 17.5H9.5L9 14L17 11.5H9L8.5 8.5H24L23.5 12L17 14.5H23L22 24L16 26L10 24L9.5 19H12.5L13 21.5L16 22.5L19 21.5L19.5 17.5Z" fill="white"/>
-      </svg>),
-      skillname:"CSS"
+      skillname: "Machine Learning",
+      svg: (
+        <svg width="60px" height="60px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="mlGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#667EEA" />
+              <stop offset="100%" stopColor="#764BA2" />
+            </linearGradient>
+          </defs>
+          <circle cx="12" cy="12" r="10" fill="url(#mlGrad)" opacity="0.1" stroke="url(#mlGrad)" strokeWidth="1.5"/>
+          <circle cx="8" cy="8" r="2.5" fill="url(#mlGrad)"/>
+          <circle cx="16" cy="8" r="2.5" fill="url(#mlGrad)"/>
+          <circle cx="12" cy="16" r="2.5" fill="url(#mlGrad)"/>
+          <line x1="8" y1="8" x2="12" y2="16" stroke="url(#mlGrad)" strokeWidth="1.5"/>
+          <line x1="16" y1="8" x2="12" y2="16" stroke="url(#mlGrad)" strokeWidth="1.5"/>
+          <path d="M12 16L8 20M12 16L16 20M12 16L12 22" stroke="url(#mlGrad)" strokeWidth="1.5" strokeLinecap="round"/>
+        </svg>
+      ),
     },
+    {
+    skillname: "Python for Data Science",
+    svg: (
+      <svg width="60px" height="60px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <linearGradient id="pythonGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#3776AB" />
+          <stop offset="100%" stopColor="#FFD43B" />
+        </linearGradient>
+        <path fill="url(#pythonGrad)" d="M11.9 1C9.1 1 6.5 2.1 6.5 5.5v2.2h5.5v.8H4.6C2.2 8.5 1 10.1 1 12.8c0 2.7 1.8 4.2 4.2 4.2h2.5v-3.5c0-2.6 2.1-4.7 4.7-4.7h5.5V6.4c0-3.3-2.4-5.4-6-5.4zm3.1 6.5c-.6 0-1.1.5-1.1 1.1s.5 1.1 1.1 1.1 1.1-.5 1.1-1.1-.5-1.1-1.1-1.1zM12.1 23c2.8 0 5.4-1.1 5.4-4.5v-2.2h-5.5v-.8h7.4c2.4 0 3.6-1.6 3.6-4.3 0-2.7-1.8-4.2-4.2-4.2h-2.5v3.5c0 2.6-2.1 4.7-4.7 4.7H6.1v2.4c0 3.3 2.4 5.4 6 5.4zm-3.1-6.5c.6 0 1.1-.5 1.1-1.1s-.5-1.1-1.1-1.1-1.1.5-1.1 1.1.5 1.1 1.1 1.1z"/>
+      </svg>
+    )
+  },
+  {
+    skillname: "TensorFlow",
+    svg: (
+      <svg width="60px" height="60px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#FF6F00" d="M12.5 0L1 6.3V18l11.5 6 10.5-6V6.3L12.5 0z"/>
+        <path fill="#FFA000" d="M19 16.6l-6.5 3.4v-8.2l6.5-3.4v8.2z"/>
+        <path fill="#FFCC80" d="M5.1 16.6V8.4l6.5 3.4v8.2l-6.5-3.4z"/>
+      </svg>
+    )
+  },
+  {
+    skillname: "Generative AI (LLMs)",
+    svg: (
+      <svg width="60px" height="60px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="aiGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#8A2BE2" />
+            <stop offset="100%" stopColor="#00D2FF" />
+          </linearGradient>
+        </defs>
+        <path stroke="url(#aiGrad)" strokeWidth="2" strokeLinecap="round" d="M12 2v4m0 12v4M2 12h4m12 0h4M5 5l3 3m8 8l3 3M5 19l3-3m8-8l3 3"/>
+        <circle cx="12" cy="12" r="4" stroke="url(#aiGrad)" strokeWidth="2"/>
+        <circle cx="12" cy="12" r="1" fill="url(#aiGrad)"/>
+      </svg>
+    )
+  },
+  {
+    skillname: "Natural Language Processing",
+    svg: (
+      <svg width="60px" height="60px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2v10z" fill="#E1F5FE" stroke="#03A9F4" strokeWidth="2"/>
+        <path d="M8 9h8m-8 4h5" stroke="#03A9F4" strokeWidth="2" strokeLinecap="round"/>
+      </svg>
+    )
+  },
+  {
+    skillname: "PyTorch",
+    svg: (
+      <svg width="60px" height="60px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#EE4C2C" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+        <path fill="#EE4C2C" d="M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"/>
+      </svg>
+    )
+  },
+  {
+    skillname: "SQL & Databases",
+    svg: (
+      <svg width="60px" height="60px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="12" cy="5" rx="9" ry="3" fill="#B0BEC5" stroke="#455A64" strokeWidth="2"/>
+        <path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5" fill="#CFD8DC" stroke="#455A64" strokeWidth="2"/>
+        <path d="M21 12c0 1.66-4.03 3-9 3s-9-1.34-9-3" stroke="#455A64" strokeWidth="2"/>
+      </svg>
+    )
+  },
     {
       svg:(<svg width="60px" height="60px" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin meet"><path d="M0 222.991C0 241.223 14.779 256 33.009 256H222.99C241.223 256 256 241.221 256 222.991V33.01C256 14.777 241.221 0 222.991 0H33.01C14.777 0 0 14.779 0 33.009V222.99z" fill="#563D7C"/><path d="M106.158 113.238V76.985h31.911c3.04 0 5.97.253 8.792.76 2.822.506 5.319 1.41 7.49 2.713 2.17 1.303 3.907 3.112 5.21 5.427 1.302 2.316 1.954 5.283 1.954 8.9 0 6.513-1.954 11.217-5.862 14.111-3.907 2.895-8.9 4.342-14.979 4.342h-34.516zM72.075 50.5v155h75.112c6.947 0 13.713-.868 20.298-2.605 6.585-1.737 12.446-4.414 17.584-8.032 5.137-3.618 9.226-8.286 12.265-14.002 3.04-5.717 4.559-12.483 4.559-20.298 0-9.697-2.352-17.982-7.055-24.856-4.704-6.875-11.832-11.687-21.384-14.437 6.947-3.328 12.194-7.598 15.74-12.808 3.545-5.21 5.318-11.722 5.318-19.538 0-7.236-1.194-13.314-3.582-18.235-2.388-4.92-5.753-8.864-10.095-11.831-4.341-2.967-9.551-5.102-15.63-6.404-6.078-1.303-12.808-1.954-20.189-1.954H72.075zm34.083 128.515v-42.549h37.121c7.381 0 13.315 1.7 17.802 5.102 4.486 3.401 6.73 9.081 6.73 17.041 0 4.053-.688 7.381-2.063 9.986-1.375 2.605-3.22 4.668-5.536 6.187-2.315 1.52-4.993 2.605-8.032 3.257-3.04.65-6.223.976-9.552.976h-36.47z" fill="#FFF"/></svg>),
       skillname:"Bootstrap"
@@ -180,6 +257,10 @@ const About = (props) => {
     {
       svg:(<svg width="60px" height="60px" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M2.58536 17.4132C1.80488 16.6327 1.80488 15.3673 2.58536 14.5868L14.5868 2.58536C15.3673 1.80488 16.6327 1.80488 17.4132 2.58536L29.4146 14.5868C30.1951 15.3673 30.1951 16.6327 29.4146 17.4132L17.4132 29.4146C16.6327 30.1951 15.3673 30.1951 14.5868 29.4146L2.58536 17.4132Z" fill="#EE513B"></path> <path d="M12.1489 5.06152L10.9336 6.27686L14.0725 9.41577C13.9455 9.68819 13.8746 9.99201 13.8746 10.3124C13.8746 11.222 14.4461 11.9981 15.2496 12.3012V19.9798C14.4461 20.2829 13.8746 21.059 13.8746 21.9686C13.8746 23.1422 14.826 24.0936 15.9996 24.0936C17.1732 24.0936 18.1246 23.1422 18.1246 21.9686C18.1246 21.144 17.6549 20.429 16.9684 20.0768V12.3117L19.9689 15.3122C19.8481 15.5791 19.7809 15.8754 19.7809 16.1874C19.7809 17.361 20.7323 18.3124 21.9059 18.3124C23.0795 18.3124 24.0309 17.361 24.0309 16.1874C24.0309 15.0138 23.0795 14.0624 21.9059 14.0624C21.6778 14.0624 21.4582 14.0983 21.2522 14.1648L18.0297 10.9423C18.0914 10.7433 18.1246 10.5317 18.1246 10.3124C18.1246 9.13878 17.1732 8.18738 15.9996 8.18738C15.7803 8.18738 15.5688 8.22061 15.3697 8.2823L12.1489 5.06152Z" fill="white"></path> </g></svg>),
       skillname:"Git"
+    },
+    {
+      svg:(<svg width="60px" height="60px" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="n8nGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stopColor="#FF6B35" /><stop offset="100%" stopColor="#F7931E" /></linearGradient></defs><circle cx="50" cy="50" r="48" fill="url(#n8nGrad)" opacity="0.1" stroke="url(#n8nGrad)" strokeWidth="2"/><path d="M30 50 Q50 30 70 50 Q50 70 30 50" fill="none" stroke="url(#n8nGrad)" strokeWidth="3" strokeLinecap="round"/><circle cx="50" cy="50" r="6" fill="url(#n8nGrad)"/><circle cx="50" cy="30" r="4" fill="url(#n8nGrad)"/><circle cx="70" cy="50" r="4" fill="url(#n8nGrad)"/><circle cx="50" cy="70" r="4" fill="url(#n8nGrad)"/><circle cx="30" cy="50" r="4" fill="url(#n8nGrad)"/></svg>),
+      skillname:"n8n Automation"
     }
   ];
   return (
@@ -238,7 +319,7 @@ const About = (props) => {
                           {experience.map((data) => (
                             <>
                               <HoverCardTrigger>
-                                <div className="flex">
+                                <div className="flex mt-4 w-[130%]">
                                   <Dot className="text-indigo-600 self-start" />
                                   <div className="ml-5">
                                     <p className="text-xl font-medium">
