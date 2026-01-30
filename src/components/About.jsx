@@ -9,6 +9,7 @@ import {
   Mail,
   Phone,
   UserRound,
+  ExternalLink,
 } from "lucide-react";
 import {
   HoverCard,
@@ -264,137 +265,131 @@ const About = (props) => {
     }
   ];
   return (
-    <>
-      <div className="md:h-screen mt-16 m-auto p-8 md:mt-0 w-screens" ref={props.about}>
-        <div className="flex text-4xl text-indigo-600 font-semibold justify-center">
-          About
+    <div ref={props.about} className="w-full min-h-screen py-20 px-6 lg:px-20 relative overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-[100px] pointer-events-none"/>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-indigo-500/10 rounded-full blur-[100px] pointer-events-none"/>
+
+        <div className="flex flex-col items-center mb-16 space-y-4 relative z-10">
+            <h2 className="text-4xl lg:text-5xl font-heading font-bold text-center">
+              About <span className="text-primary">Me</span>
+            </h2>
+            <p className="text-muted-foreground text-center max-w-xl">
+              Unveiling the person behind the code. A journey of learning, creating, and evolving.
+            </p>
         </div>
-        <div className="md:flex h-5/6 mt-12 md:mt-0 justify-between items-center">
-          <div className="hidden lg:flex md:h-2/3 lg:h-5/6 lg:flex-col w-1/2 p-10 lg:justify-center items-center">
-            <div className="bg-shap1-light dark:bg-hero_shape2_dark  w-[600px] h-[500px] bg-no-repeat absolute lg:mt-[40px] lg:ml-[80px]"></div>
-            <div className="bg-shap2-dark dark:bg-hero_shape2_dark w-[600px] h-[500px] bg-no-repeat absolute lg:mt-[40px] lg:ml-[80px]"></div>
-            <div className="bg-image lg:ml-[140px] absolute w-[650px]  h-[450px] bg-contain bg-no-repeat"></div>
-          </div>
-          <div className="md:flex justify-center w-screen h-full lg:w-1/2 md:h-5/6">
-            <Tabs defaultValue="Personalinfo" className="w-[85dvw] lg:w-[40dvw]">
-              <TabsList className="grid w-full grid-cols-3 mt-4 h-12  text-black">
-                <TabsTrigger value="Personalinfo">Personal info</TabsTrigger>
-                <TabsTrigger value="Qulification">Qulification</TabsTrigger>
-                <TabsTrigger value="Skills">Skills</TabsTrigger>
-              </TabsList>
-              <div className="w-full p-4">
-                <TabsContent value="Personalinfo">
-                  <h2 className="text-2xl font-semibold min-[2300px]::text-4xl">Student</h2>
-                  <p className="text-base mt-2 min-[2300px]::text-xl">
-                    I specialize in crafting intuitive websites with
-                    cutting-edge technology. Moreover, I am always ready to
-                    adopt new programming languages and solve bugs.
-                  </p>
-                  <div className="flex text-sm md:text-base w-full flex-wrap min-[2300px]::text-xl">
-                    {personalinfodata.map((data) => (
-                      <p className="flex mt-8 font-medium w-1/2" key={data.text} onClick={data.onclick!=""?data.onclick:""}>
-                        <span>{data.icon}</span>
-                        <span className="break-all md:break-normal text-pretty">{data.text}</span>
-                      </p>
-                    ))}
-                    <div className="mt-14 border-b-2 border-indigo-300 w-full pb-4">
-                      <p className="font-medium text-base text-indigo-600">
-                        Languages Skill
-                      </p>
-                      <p className="mt-4 font-medium">
-                        English , Gujrati , Hindi
-                      </p>
-                    </div>
-                  </div>
-                </TabsContent>
-                <TabsContent value="Qulification">
-                  <h2 className="text-2xl font-semibold">My Journey</h2>
-                  <div className="flex w-full mt-8">
-                    <div className="w-2/4">
-                      <div className="flex text-indigo-600 text-xl font-medium items-center">
-                        <BriefcaseBusiness /> <p className="ml-5">Experience</p>
-                      </div>
-                      <HoverCard>
-                        <div className="mt-8">
-                          {experience.map((data) => (
-                            <>
-                              <HoverCardTrigger>
-                                <div className="flex mt-4 w-[130%]">
-                                  <Dot className="text-indigo-600 self-start" />
-                                  <div className="ml-5">
-                                    <p className="text-xl font-medium">
-                                      {data.company}
-                                    </p>
-                                    <p className="text-lg font-normal text-gray-600 mt-1">
-                                      {data.role}
-                                    </p>
-                                    <p className="font-medium mt-1">
-                                      {data.duration}
-                                    </p>
-                                  </div>
+
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 relative z-10">
+            {/* Left Column: Image/Profile (Optional: Placeholder for now or remove if strictly text/tabs) */} 
+            {/* Since the original had a large image section, let's keep a simplified version or merge it opacity */}
+            
+            <div className="lg:col-span-12 w-full">
+                <Tabs defaultValue="personal-info" className="w-full">
+                    <TabsList className="grid w-full max-w-md mx-auto grid-cols-3 mb-12 bg-secondary/50 p-1 rounded-full">
+                        <TabsTrigger value="personal-info" className="rounded-full data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">Personal</TabsTrigger>
+                        <TabsTrigger value="qualification" className="rounded-full data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">Journey</TabsTrigger>
+                        <TabsTrigger value="skills" className="rounded-full data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">Skills</TabsTrigger>
+                    </TabsList>
+
+                    <TabsContent value="personal-info" className="space-y-8 animate-fade-in">
+                        <div className="glass-card p-8 md:p-12 rounded-2xl max-w-4xl mx-auto flex flex-col md:flex-row gap-12 items-center">
+                            <div className="flex-1 space-y-6">
+                                <h3 className="text-3xl font-bold">I am a <span className="text-primary">Student</span></h3>
+                                <p className="text-lg text-muted-foreground leading-relaxed">
+                                    I specialize in crafting intuitive websites with cutting-edge technology. 
+                                    Moreover, I am always ready to adopt new programming languages and solve bugs.
+                                </p>
+                                
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
+                                    {personalinfodata.map((data, i) => (
+                                        <div key={i} className="flex items-center gap-4 text-foreground/80 hover:text-primary transition-colors cursor-pointer" onClick={() => data.onclick && window.open(data.onclick)}>
+                                            <div className="p-3 rounded-full bg-secondary/50 text-primary">
+                                                {data.icon}
+                                            </div>
+                                            <span className="font-medium">{data.text}</span>
+                                        </div>
+                                    ))}
                                 </div>
-                              </HoverCardTrigger>
-                              <HoverCardContent>
-                                {data.content}{" "}
-                                <a
-                                  target="_blank"
-                                  className="text-indigo-600 underline"
-                                  href={data.link}
-                                >
-                                  {data.linkname}
-                                </a>
-                              </HoverCardContent>
-                            </>
-                          ))}
-                        </div>
-                      </HoverCard>
-                    </div>
-                    <div className="w-2/4">
-                      <div className="flex text-indigo-600 text-xl font-medium items-center">
-                        <GraduationCap /> <p className="ml-5">Education</p>
-                      </div>
-                      <div className="mt-8">
-                        {eduction.map((data) => (
-                          <div className="flex mt-4 w-[130%]">
-                            <Dot className="text-indigo-600 self-start" />
-                            <div className="ml-5">
-                              <p className="text-xl font-medium">
-                                {data.school}
-                              </p>
-                              <p className="text-lg font-normal text-gray-600 mt-1">
-                                {data.class} – {data.grade}
-                              </p>
-                              <p className="font-medium mt-1">{data.year}</p>
+
+                                <div className="pt-6 border-t border-border">
+                                    <h4 className="text-sm font-semibold text-primary uppercase tracking-wider mb-2">Languages</h4>
+                                    <p className="font-medium text-foreground/80">English, Gujarati, Hindi</p>
+                                </div>
                             </div>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </TabsContent>
-                <TabsContent value="Skills">
-                  <h2 className="text-2xl font-semibold">Skills</h2>
-                  <div className="flex w-full gap-5 flex-wrap mt-8">
-                    {skills.map((data) => (
-                      <HoverCard>
-                        <HoverCardTrigger>
-                          <div className="border p-2 rounded-lg w-auto">
-                            {data.svg}
-                          </div>
-                        </HoverCardTrigger>
-                        <HoverCardContent className="w-auto text-indigo-600 font-medium">
-                          {data.skillname}
-                        </HoverCardContent>
-                      </HoverCard>
-                    ))}
-                  </div>
-                </TabsContent>
-              </div>
-            </Tabs>
-          </div>
+                        </div>
+                    </TabsContent>
+
+                    <TabsContent value="qualification" className="animate-fade-in">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            {/* Experience */}
+                            <div className="glass-card p-8 rounded-2xl">
+                                <div className="flex items-center gap-3 mb-8 text-primary">
+                                    <BriefcaseBusiness size={24} />
+                                    <h3 className="text-2xl font-bold">Experience</h3>
+                                </div>
+                                <div className="space-y-8">
+                                    {experience.map((data, i) => (
+                                        <div key={i} className="relative pl-8 border-l-2 border-primary/20 last:pb-0">
+                                            <div className="absolute top-0 -left-[9px] w-4 h-4 rounded-full bg-primary ring-4 ring-background" />
+                                            <h4 className="text-lg font-bold">{data.company}</h4>
+                                            <p className="text-primary font-medium text-sm mb-2">{data.role}</p>
+                                            <span className="inline-block px-2 py-1 text-xs font-semibold bg-secondary rounded-md text-muted-foreground mb-4">{data.duration}</span>
+                                            <p className="text-muted-foreground text-sm mb-2">{data.content}</p>
+                                            {data.link && (
+                                                <a href={data.link} target="_blank" rel="noreferrer" className="text-sm font-medium text-primary hover:underline flex items-center gap-1">
+                                                    {data.linkname} <ExternalLink size={12}/>
+                                                </a>
+                                            )}
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+
+                            {/* Education */}
+                            <div className="glass-card p-8 rounded-2xl">
+                                <div className="flex items-center gap-3 mb-8 text-primary">
+                                    <GraduationCap size={24} />
+                                    <h3 className="text-2xl font-bold">Education</h3>
+                                </div>
+                                <div className="space-y-8">
+                                    {eduction.map((data, i) => (
+                                        <div key={i} className="relative pl-8 border-l-2 border-primary/20 last:pb-0">
+                                            <div className="absolute top-0 -left-[9px] w-4 h-4 rounded-full bg-primary ring-4 ring-background" />
+                                            <h4 className="text-lg font-bold">{data.school}</h4>
+                                            <p className="text-primary font-medium text-sm mb-2">{data.class} – {data.grade}</p>
+                                            <span className="inline-block px-2 py-1 text-xs font-semibold bg-secondary rounded-md text-muted-foreground">{data.year}</span>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+                    </TabsContent>
+
+                    <TabsContent value="skills" className="animate-fade-in">
+                        <div className="glass-card p-8 rounded-2xl bg-card/30">
+                            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+                                {skills.map((data, i) => (
+                                    <HoverCard key={i}>
+                                        <HoverCardTrigger asChild>
+                                            <div className="flex flex-col items-center justify-center p-6 rounded-xl bg-background/50 border border-white/5 hover:border-primary/50 hover:bg-secondary/50 transition-all duration-300 cursor-pointer group h-full">
+                                                <div className="w-12 h-12 mb-4 transition-transform group-hover:scale-110">
+                                                    {data.svg}
+                                                </div>
+                                                <span className="text-sm font-medium text-center text-muted-foreground group-hover:text-foreground transition-colors">{data.skillname}</span>
+                                            </div>
+                                        </HoverCardTrigger>
+                                        <HoverCardContent className="w-auto">
+                                            <span className="font-semibold text-primary">{data.skillname}</span>
+                                        </HoverCardContent>
+                                    </HoverCard>
+                                ))}
+                            </div>
+                        </div>
+                    </TabsContent>
+                </Tabs>
+            </div>
         </div>
-      </div>
-    </>
+    </div>
   );
 };
 

@@ -2,8 +2,6 @@ import React from "react";
 import {
   Card,
   CardContent,
-  CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
@@ -14,7 +12,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip"
-
+import { Github, ExternalLink } from "lucide-react";
 
 const Projects = (props) => {
 
@@ -86,106 +84,96 @@ const Projects = (props) => {
   ]
 
   return (
-    <>
-      <div ref={props.project} className="md:h-screen mt-16 md:mt-0 w-screens m-auto p-8">
-        <div className="flex text-4xl text-indigo-600 font-semibold justify-center">
-          Projects
-        </div>
-        <div className="flex flex-row p-8 m-auto min-[2300px]:pl-40 pt-20 gap-8 overflow-auto pb-10">
-          {project.map((data)=>(
-          <div className="group relative">
-            <Badge className="relative left-3 top-8 bg-indigo-500 text-white border-indigo-500 text-sm" variant="outline">{data.tech}</Badge>            
-            <div class="flex absolute gap-x-4 w-full h-[200px] justify-center items-center">
-              
-              {data.livelink!==null?(
-                <TooltipProvider>
-                <Tooltip>
-                  <TooltipTrigger>
-              <a
-                target="_blank"
-                class="bg-indigo-600 w-[54px] h-[54px] rounded-full flex justify-center items-center scale-0 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-200 hover:bg-indigo-400"
-                href={data.livelink}
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="lucide lucide-link2 text-white"
-                >
-                  <path d="M9 17H7A5 5 0 0 1 7 7h2"></path>
-                  <path d="M15 7h2a5 5 0 1 1 0 10h-2"></path>
-                  <line x1="8" x2="16" y1="12" y2="12"></line>
-                </svg>
-              </a>
-              </TooltipTrigger>
-              <TooltipContent>
-                Live Preview
-              </TooltipContent>
-              </Tooltip>
-              </TooltipProvider>
-              ):null}
-            
-              <TooltipProvider>
-                <Tooltip>
-                  <TooltipTrigger>
-              <a
-                target="_blank"
-                class="bg-indigo-600 w-[54px] h-[54px] rounded-full flex justify-center items-center scale-0 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-300 hover:bg-indigo-400"
-                href={data.gitlink}
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="lucide lucide-github text-white"
-                >
-                  <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
-                  <path d="M9 18c-4.51 2-5-2-7-2"></path>
-                </svg>
-              </a>
-              </TooltipTrigger>
-              <TooltipContent>
-                Github Link
-              </TooltipContent>
-              </Tooltip>
-              </TooltipProvider>
-            </div>
-            <Card className="w-full max-w-xs">
-             <div className="w-[300px]">
-              <img
-                alt={data.imgalt}
-                className="aspect-[1.6] rounded-xl"
-                height="250"
-                src={data.imgsrc}
-                width="400"
-              />
+    <div ref={props.project} className="w-full min-h-screen py-20 px-6 lg:px-20 bg-background/50">
+      <div className="flex flex-col items-center mb-16 space-y-4">
+        <h2 className="text-4xl lg:text-5xl font-heading font-bold text-center">
+          Featured <span className="text-primary">Projects</span>
+        </h2>
+        <p className="text-muted-foreground text-center max-w-2xl">
+          A collection of my recent work, showcasing my skills in full-stack development, design, and data engineering.
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+        {project.map((data, index) => (
+          <div key={index} className="group relative h-full">
+            <Card className="glass-card h-full overflow-hidden border-0 bg-card/40 hover:bg-card/60 transition-all duration-500">
+              {/* Image Container with Overlay */}
+              <div className="relative overflow-hidden aspect-video">
+                <img
+                  alt={data.imgalt}
+                  className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110"
+                  src={data.imgsrc}
+                />
+                
+                {/* Overlay Links */}
+                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
+                  {data.livelink && (
+                    <TooltipProvider>
+                      <Tooltip>
+                        <TooltipTrigger asChild>
+                          <a
+                            href={data.livelink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="p-3 bg-white/10 backdrop-blur-md rounded-full text-white hover:bg-primary hover:text-white transition-all duration-300 hover:scale-110"
+                          >
+                            <ExternalLink size={20} />
+                          </a>
+                        </TooltipTrigger>
+                        <TooltipContent>Live Preview</TooltipContent>
+                      </Tooltip>
+                    </TooltipProvider>
+                  )}
+                  
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <a
+                          href={data.gitlink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="p-3 bg-white/10 backdrop-blur-md rounded-full text-white hover:bg-primary hover:text-white transition-all duration-300 hover:scale-110"
+                        >
+                          <Github size={20} />
+                        </a>
+                      </TooltipTrigger>
+                      <TooltipContent>View Code</TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                </div>
+                
+                {/* Tech Badge */}
+                <div className="absolute top-4 left-4">
+                   <Badge variant="secondary" className="bg-background/80 backdrop-blur-sm text-xs font-medium border border-white/10">
+                     {data.tech.split(' ')[0]}
+                   </Badge>
+                </div>
               </div>
-              <CardHeader className="p-4">
-                <CardTitle className="text-2xl">{data.cardtitle}</CardTitle>
+
+              <CardHeader className="p-6">
+                <CardTitle className="text-xl font-bold group-hover:text-primary transition-colors">
+                  {data.cardtitle}
+                </CardTitle>
               </CardHeader>
-              <CardContent className="p-4 pt-0">
-                <p className="text-base">
-                 {data.cardcontent}
+              
+              <CardContent className="px-6 pb-6 pt-0">
+                <p className="text-sm text-muted-foreground line-clamp-3">
+                  {data.cardcontent}
                 </p>
+                <div className="mt-4 flex flex-wrap gap-2">
+                   {data.tech.split(' ').map((tech, i) => (
+                     <span key={i} className="text-[10px] uppercase tracking-wider text-muted-foreground bg-secondary/50 px-2 py-1 rounded-md">
+                       {tech}
+                     </span>
+                   ))}
+                </div>
               </CardContent>
             </Card>
           </div>
-          ))}
-        </div>
+        ))}
       </div>
-    </>
+    </div>
   );
 };
 

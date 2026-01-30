@@ -27,9 +27,11 @@ const Home = (props) => {
     Subject: "",
     Message: "",
   });
+  
   const onchange = (e) => {
     setData({...data, [e.target.name]: e.target.value });
   };
+
   const downloadPDF = () => {
     const pdfPath = 'Image/AarshPrajapati Resume.pdf';
     const link = document.createElement('a');
@@ -41,77 +43,122 @@ const Home = (props) => {
   const sendemail=()=>{
     const reqfield=Object.values(data).some(value => value === ''); 
     if(reqfield){
-      toast("Both Fields are  Required")
+      toast("Both Fields are Required")
     }
     else{
-    const mailtoUrl = `mailto:${data.Email}?subject=${encodeURIComponent(data.Subject)}&body=${encodeURIComponent(data.Message)}`;
-    window.location.href = mailtoUrl;
+      const mailtoUrl = `mailto:${data.Email}?subject=${encodeURIComponent(data.Subject)}&body=${encodeURIComponent(data.Message)}`;
+      window.location.href = mailtoUrl;
     }
   }
+
   return (
-    <div ref={props.home} className='w-screen m-auto p-8 pr-0  top-0 left-0 mt-16 lg:flex md:h-[130vh] lg:h-screen  justify-between gap-x-8'>
-        <div className='lg:flex w-1/2 lg:h-5/6 lg:flex-col lg:w-1/2 sm:w-max p-4 md:p-10 justify-center  items-center'>
-            <div className='w-screen md:w-auto md:line-clamp-4 list-inside whitespace-normal'>
-            <div className='md:text-sm uppercase font-bold mb-4 text-blue-800 tracking-[4px]'>Data Scientist</div>
-            <h2 className='text-4xl w-[80%] overflow-hidden md:text-6xl text-ellipsis  md:w-[90%] leading-snug  antialiased font-semibold mb-6'>Hello, my name is Aarsh Prajapati</h2>
-            <h3 className='tracking-normal flex text-xl'>I am &nbsp; 
-              <Typewriter
-            options={{
-                strings: ['Data Scientist', 'Data Analyst' , 'Machine Learning Enthusiast', 'AI Engineer'],
+    <div ref={props.home} className='relative w-full min-h-screen flex flex-col-reverse lg:flex-row items-center justify-center gap-10 px-6 lg:px-20 py-20 overflow-hidden bg-background'>
+      
+      {/* Background Gradients */}
+      <div className="absolute top-[-20%] left-[-10%] w-[500px] h-[500px] bg-primary/20 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-[-20%] right-[-10%] w-[500px] h-[500px] bg-secondary/20 rounded-full blur-[120px] pointer-events-none" />
+
+      {/* Text Section */}
+      <div className='flex-1 flex flex-col items-start z-10 space-y-6 animate-fade-in'>
+        <div className='inline-block px-3 py-1 text-sm font-semibold tracking-wider text-primary uppercase bg-primary/10 rounded-full border border-primary/20'>
+          Data Scientist
+        </div>
+        
+        <h1 className='text-5xl lg:text-7xl font-heading font-extrabold leading-tight tracking-tight text-foreground'>
+          Hello, I'm <br />
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-400">
+            Aarsh Prajapati
+          </span>
+        </h1>
+
+        <div className='text-3xl lg:text-4xl text-muted-foreground font-light flex items-center gap-2'>
+          <span>I am a</span>
+          <span className="font-semibold text-foreground">
+            <Typewriter
+              options={{
+                strings: ['Data Scientist', 'Data Analyst', 'Machine Learning Enthusiast', 'AI Engineer'],
                 autoStart: true,
                 loop: true,
               }}
-            /></h3>
-            </div>
-            <div className='flex self-start my-6 min-[2300px]:ml-32'>
-              <Dialog>
-            <DialogTrigger><Button className='bg-indigo-600 hover:bg-indigo-500 h-10 md:text-base'>Contact me &nbsp; <Send className='mt-1'  size='15px'/></Button></DialogTrigger>
-            <DialogContent>
-    <DialogHeader>
-      <DialogTitle>Send Email</DialogTitle>
-      <DialogDescription>
-        Enter Details to Contact
-      </DialogDescription>
-    </DialogHeader>
-    <div className="grid gap-4 py-4">
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="Subject" className="text-right">
-              Subject
-            </Label>
-            <Input id="Subject" name="Subject" onChange={onchange}  className="col-span-3" />
-          </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="Message" className="text-right">
-              Message
-            </Label>
-            <Textarea id="Message" name="Message" onChange={onchange} className="col-span-3" />
-          </div>
+            />
+          </span>
         </div>
-        <DialogFooter>
-          <Button type="submit" onClick={sendemail}>Send</Button>
-        </DialogFooter>
 
-  </DialogContent>
-            </Dialog>
-            <Button onClick={downloadPDF} className=' h-10 text-base ml-6'>Download CV &nbsp; <FileDown size='17px'/></Button>
-            </div> 
-            <div className='flex self-start mt-4 min-[2300px]:ml-32'>
-             <a className='cursor-pointer mr-4' target='_blank' href='https://www.instagram.com/aarsh._.802/'><Instagram className='text-indigo-600 hover:text-indigo-900' /></a>
-             <a className='cursor-pointer mr-4' target='_blank' href='https://github.com/AarshPrajapati'> <Github className='text-indigo-600 hover:text-indigo-900'/></a>
-             <a className='cursor-pointer mr-4' target='_blank' href='https://www.linkedin.com/in/aarsh-prajapati-167825270/'><Linkedin className='text-indigo-600 hover:text-indigo-900'/></a>
-             <a className='cursor-pointer mr-4' target='_blank' href='https://m.facebook.com/arsh.prajapati.5'><Facebook className='text-indigo-600 hover:text-indigo-900'/></a>
-            </div>
+        <p className="text-lg text-muted-foreground max-w-lg leading-relaxed">
+          Crafting intelligent solutions through data and code. Passionate about transforming complex problems into elegant, efficient models.
+        </p>
+
+        <div className='flex flex-wrap gap-4 pt-4'>
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button size="lg" className='rounded-full text-base px-8 shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all'>
+                Contact Me <Send className='ml-2 h-4 w-4'/>
+              </Button>
+            </DialogTrigger>
+            <DialogContent className="sm:max-w-[425px]">
+              <DialogHeader>
+                <DialogTitle>Send Email</DialogTitle>
+                <DialogDescription>
+                  Enter Details to Contact
+                </DialogDescription>
+              </DialogHeader>
+              <div className="grid gap-4 py-4">
+                <div className="grid gap-2">
+                  <Label htmlFor="Subject">Subject</Label>
+                  <Input id="Subject" name="Subject" onChange={onchange} placeholder="Project Inquiry" />
+                </div>
+                <div className="grid gap-2">
+                  <Label htmlFor="Message">Message</Label>
+                  <Textarea id="Message" name="Message" onChange={onchange} placeholder="Hello, I'd like to discuss..." />
+                </div>
+              </div>
+              <DialogFooter>
+                <Button type="submit" onClick={sendemail}>Send Message</Button>
+              </DialogFooter>
+            </DialogContent>
+          </Dialog>
+
+          <Button variant="outline" size="lg" onClick={downloadPDF} className='rounded-full text-base px-8 border-foreground/20 hover:bg-card/50'>
+            Download CV <FileDown className='ml-2 h-4 w-4'/>
+          </Button>
         </div>
-        
-        <div className='lg:flex  h-[400px] md:h-2/3 lg:h-5/6 lg:flex-col w-[600px] p-4  md:p-10 lg:justify-center items-center'>
-        <div className="bg-shap1-light dark:bg-hero_shape2_dark w-[400px] h-[350px] bg-contain lg:bg-auto lg:w-[600px] lg:h-[500px] bg-no-repeat absolute lg:mt-[40px] lg:mr-32"></div>
-        <div className="bg-shap2-dark dark:bg-hero_shape2_dark w-[400px] h-[350px] bg-contain lg:bg-auto lg:w-[600px] lg:h-[500px] bg-no-repeat absolute lg:mt-[40px] lg:mr-32"></div>
-        <div className='bg-image lg:mr-16 absolute w-[400px] h-[350px] lg:w-[650px]  lg:h-[450px] bg-contain bg-no-repeat'>
+
+        <div className='flex gap-4 mt-8'>
+          {[
+            { Icon: Instagram, href: 'https://www.instagram.com/aarsh._.802/' },
+            { Icon: Github, href: 'https://github.com/AarshPrajapati' },
+            { Icon: Linkedin, href: 'https://www.linkedin.com/in/aarsh-prajapati-167825270/' },
+            { Icon: Facebook, href: 'https://m.facebook.com/arsh.prajapati.5' }
+          ].map(({ Icon, href }, index) => (
+            <a 
+              key={index}
+              href={href} 
+              target='_blank' 
+              rel="noreferrer"
+              className='p-2 rounded-full border border-border/50 text-muted-foreground hover:text-primary hover:border-primary transition-all duration-300 hover:scale-110'
+            >
+              <Icon size={20} />
+            </a>
+          ))}
         </div>
+      </div>
+      
+      {/* Image/Visual Section */}
+      <div className='flex-1 flex justify-center items-center relative z-10 animate-fade-in'>
+        <div className="relative w-[300px] h-[300px] lg:w-[500px] lg:h-[500px]">
+          {/* Abstract blobs behind image */}
+          <div className="absolute inset-0 bg-gradient-to-tr from-primary to-blue-500 rounded-full opacity-20 blur-3xl animate-pulse" />
+          <div className="absolute inset-4 bg-card rounded-[2rem] shadow-2xl border border-white/5 overflow-hidden flex items-center justify-center group">
+             {/* You might want to use a real image here if available, or a placeholder if the original was broken */}
+             <div className="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style={{ backgroundImage: 'url(/Image/Aarsh.png)' }}></div>
+             {/* Fallback pattern if image is missing */}
+             <div className="absolute inset-0 bg-grid-white/5 [mask-image:linear-gradient(0deg,white,transparent)] pointer-events-none"></div>
+          </div>
         </div>
+      </div>
       
     </div>
-    )
+  )
 }
 
 export default Home
