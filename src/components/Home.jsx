@@ -64,19 +64,19 @@ const Home = (props) => {
           Data Scientist
         </div>
         
-        <h1 className='text-5xl lg:text-7xl font-heading font-extrabold leading-tight tracking-tight text-foreground'>
+        <h1 className='text-4xl lg:text-6xl font-heading font-extrabold leading-tight tracking-tight text-foreground'>
           Hello, I'm <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-400">
             Aarsh Prajapati
           </span>
         </h1>
 
-        <div className='text-3xl lg:text-4xl text-muted-foreground font-light flex items-center gap-2'>
+        <div className='text-2xl lg:text-3xl text-muted-foreground font-light flex items-center gap-2'>
           <span>I am a</span>
           <span className="font-semibold text-foreground">
             <Typewriter
               options={{
-                strings: ['Data Scientist', 'Data Analyst', 'Machine Learning Enthusiast', 'AI Engineer'],
+                strings: ['Data Scientist', 'AI & Machine Learning Engineer', 'Full-Stack Developer', 'Computer Vision & GenAI'],
                 autoStart: true,
                 loop: true,
               }}

@@ -294,10 +294,10 @@ const About = (props) => {
                     <TabsContent value="personal-info" className="space-y-8 animate-fade-in">
                         <div className="glass-card p-8 md:p-12 rounded-2xl max-w-4xl mx-auto flex flex-col md:flex-row gap-12 items-center">
                             <div className="flex-1 space-y-6">
-                                <h3 className="text-3xl font-bold">I am a <span className="text-primary">Student</span></h3>
+                                <h3 className="text-3xl font-bold">I am a <span className="text-primary">Data Science Graduate</span></h3>
                                 <p className="text-lg text-muted-foreground leading-relaxed">
-                                    I specialize in crafting intuitive websites with cutting-edge technology. 
-                                    Moreover, I am always ready to adopt new programming languages and solve bugs.
+                                    I specialize in crafting intelligent websites and AI solutions with cutting-edge technology. 
+                                    Passionate about building scalable applications and solving complex problems through code and data.
                                 </p>
                                 
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">

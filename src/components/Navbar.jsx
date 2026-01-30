@@ -24,7 +24,7 @@ const Navbar = (props) => {
         
         {/* Logo */}
         <div className="font-heading font-bold text-2xl tracking-tighter text-primary cursor-pointer hover:scale-105 transition-transform">
-          <a onClick={() => props.scrollToTarget('home')}>Aarsh<span className="text-foreground">.</span></a>
+          <a onClick={() => props.scrollToTarget('home')}>Aarsh<span className="text-foreground"></span></a>
         </div>
 
         {/* Mobile Menu Icon */}
