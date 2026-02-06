@@ -10,4 +10,23 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'vendor': ['react', 'react-dom'],
+          'ui': ['lucide-react'],
+          'radix': ['@radix-ui/react-dialog', '@radix-ui/react-tabs', '@radix-ui/react-hover-card', '@radix-ui/react-label', '@radix-ui/react-slot']
+        }
+      }
+    },
+    chunkSizeWarningLimit: 1000,
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true
+      }
+    }
+  }
 })

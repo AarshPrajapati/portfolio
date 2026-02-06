@@ -1,9 +1,10 @@
-import { useRef } from "react"
-import About from "./components/About"
-import Footer from "./components/Footer"
-import Home from "./components/Home"
+import { useRef, lazy, Suspense } from "react"
+import LoadingSpinner from "./components/LoadingSpinner"
 import Navbar from "./components/Navbar"
-import Projects from "./components/Projects"
+import Home from "./components/Home"
+const About = lazy(() => import('./components/About'))
+const Projects = lazy(() => import('./components/Projects'))
+const Footer = lazy(() => import('./components/Footer'))
 import { Toaster } from "@/components/ui/sonner"
 import { Analytics } from "@vercel/analytics/react"
 
@@ -30,9 +31,15 @@ function App() {
     <div className="w-screen">
       <Navbar scrollToTarget={scrollToTarget}/>
       <Home home={home}/>
-      <About about={about}/>
-      <Projects project={project}/>
-      <Footer/>
+      <Suspense fallback={<LoadingSpinner />}>
+        <About about={about}/>
+      </Suspense>
+      <Suspense fallback={<LoadingSpinner />}>
+        <Projects project={project}/>
+      </Suspense>
+      <Suspense fallback={<LoadingSpinner />}>
+        <Footer/>
+      </Suspense>
       <Toaster />
       <Analytics/>
     </div>
